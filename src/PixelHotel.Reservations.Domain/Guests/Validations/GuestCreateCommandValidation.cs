@@ -5,7 +5,7 @@ using PixelHotel.Reservations.Business.Guests.Commands;
 
 namespace PixelHotel.Reservations.Business.Guests.Validations;
 
-internal class GuestCreateCommandValidation : AbstractValidator<GuestCreateCommand>
+public class GuestCreateCommandValidation : AbstractValidator<GuestCreateCommand>
 {
     public GuestCreateCommandValidation()
     {

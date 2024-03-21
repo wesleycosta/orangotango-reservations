@@ -1,19 +1,19 @@
 ﻿using FluentValidation;
 using PixelHotel.Core.Data;
-using PixelHotel.Core.Domain.Services;
+using PixelHotel.Core.Services;
 using PixelHotel.Events.Guests;
 using PixelHotel.Reservations.Business.Guests.Abstractions;
 using PixelHotel.Reservations.Business.Guests.Aggregates;
 using PixelHotel.Reservations.Business.Guests.Commands;
 
-namespace PixelHotel.Reservations.Business.Guests.Services;
+namespace PixelHotel.Reservations.Application.Guests.Handlers;
 
-internal class GuestService : ServiceBase, IGuestService
+public class GuestCreateCommandHandler : CommandHandlerBase<GuestCreateCommand>
 {
     private readonly IGuestRepository _guestRepository;
     protected readonly IValidator<GuestCreateCommand> _validator;
 
-    public GuestService(IUnitOfWork unitOfWork,
+    public GuestCreateCommandHandler(IUnitOfWork unitOfWork,
         IGuestRepository guestRepository,
         IValidator<GuestCreateCommand> validator) : base(unitOfWork)
     {
@@ -21,19 +21,19 @@ internal class GuestService : ServiceBase, IGuestService
         _validator = validator;
     }
 
-    public async Task<Result> Create(GuestCreateCommand command)
+    public override async Task<Result> Handle(GuestCreateCommand request, CancellationToken cancellationToken)
     {
-        if (!await Validate(_validator, command))
-        {
+        if (!await Validate(_validator, request))
             return BadCommand();
-        }
 
-        var guest = new Guest(command.Name,
-            command.Email,
-            command.DateOfBirth);
+        var guest = new Guest(request.FirstName,
+            request.LastName,
+            request.Email,
+            request.DateOfBirth);
 
         var @event = new GuestCreatedOrUpdatedEvent(guest.Id,
-            guest.Name,
+            guest.FirstName,
+            guest.LastName,
             guest.Email.Address,
             guest.DateOfBirth.Date);
 

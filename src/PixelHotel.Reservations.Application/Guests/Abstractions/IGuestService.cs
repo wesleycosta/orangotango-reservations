@@ -1,7 +1,7 @@
-﻿using PixelHotel.Core.Domain.Services;
+﻿using PixelHotel.Core.Services;
 using PixelHotel.Reservations.Business.Guests.Commands;
 
-namespace PixelHotel.Reservations.Business.Guests.Abstractions;
+namespace PixelHotel.Reservations.Application.Guests.Abstractions;
 
 public interface IGuestService
 {

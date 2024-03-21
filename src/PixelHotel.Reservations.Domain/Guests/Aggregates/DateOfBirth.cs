@@ -1,9 +1,8 @@
 ﻿using PixelHotel.Core.Domain;
-using PixelHotel.Core.Domain.Abstractions;
 
 namespace PixelHotel.Reservations.Business.Guests.Aggregates;
 
-internal sealed class DateOfBirth : IValueObject
+public sealed class DateOfBirth : IValueObject
 {
     public static readonly DateOnly MinValue = DateOnly.FromDateTime(new DateTime(1990, 01, 01));
 

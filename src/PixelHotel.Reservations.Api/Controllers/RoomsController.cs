@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PixelHotel.Reservations.Business.Guests.Abstractions;
+using PixelHotel.Reservations.Application.Guests.Abstractions;
 using PixelHotel.Reservations.Business.Guests.Commands;
 
 namespace PixelHotel.Reservations.Api.Controllers;

@@ -10,7 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PixelHotel.Reservations.Business\PixelHotel.Reservations.Business.csproj" />
+    <ProjectReference Include="..\PixelHotel.Reservations.Application\PixelHotel.Reservations.Application.csproj" />
+    <ProjectReference Include="..\PixelHotel.Reservations.Domain\PixelHotel.Reservations.Domain.csproj" />
   </ItemGroup>
 
 </Project>

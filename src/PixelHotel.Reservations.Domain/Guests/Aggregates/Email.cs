@@ -1,10 +1,9 @@
 ﻿using PixelHotel.Core.Domain;
-using PixelHotel.Core.Domain.Abstractions;
 using System.Text.RegularExpressions;
 
 namespace PixelHotel.Reservations.Business.Guests.Aggregates;
 
-internal sealed class Email : IValueObject
+public sealed class Email : IValueObject
 {
     public static readonly byte MinLength = 5;
     public static readonly byte MaxLength = 254;
