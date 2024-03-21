@@ -9,10 +9,15 @@ public class GuestCreateCommandValidation : AbstractValidator<GuestCreateCommand
 {
     public GuestCreateCommandValidation()
     {
-        RuleFor(command => command.Name)
+        RuleFor(command => command.FirstName)
            .NotNull()
            .NotEmpty()
-           .WithMessage(ValidationMessages.NotInformed(nameof(GuestCreateCommand.Name)));
+           .WithMessage(ValidationMessages.NotInformed(nameof(GuestCreateCommand.FirstName)));
+
+        RuleFor(command => command.FirstName)
+            .NotNull()
+            .NotEmpty()
+            .WithMessage(ValidationMessages.NotInformed(nameof(GuestCreateCommand.LastName)));
 
         RuleFor(command => command.Email)
             .NotNull()

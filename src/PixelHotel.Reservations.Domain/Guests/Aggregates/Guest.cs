@@ -1,8 +1,9 @@
-﻿using PixelHotel.Core.Domain;
+﻿using PixelHotel.Core.Abstractions;
+using PixelHotel.Core.Domain;
 
 namespace PixelHotel.Reservations.Business.Guests.Aggregates;
 
-public sealed class Guest : Entity, IAggregateRoot
+public class Guest : Entity, IAggregateRoot
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }

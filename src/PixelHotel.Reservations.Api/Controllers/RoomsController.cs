@@ -1,29 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
-using PixelHotel.Reservations.Application.Guests.Abstractions;
+using PixelHotel.Core.Events.Abstractions;
 using PixelHotel.Reservations.Business.Guests.Commands;
 
 namespace PixelHotel.Reservations.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class RoomsController : ControllerBase
+public class RoomsController(IMediatorHandler _mediatorHandler) : ControllerBase
 {
-    private readonly IGuestService _guestService;
-
-    public RoomsController(IGuestService guestService)
-        => _guestService = guestService;
-
     [HttpGet]
-    public IActionResult GetOk()
+    public async Task<IActionResult> GetOk()
     {
         var command = new GuestCreateCommand
         {
-            Name = "Wesley",
+            FirstName = "Wesley",
+            LastName = "Costa",
             Email = "wesley.costa@mail.com",
-            DateOfBirth = DateOnly.FromDateTime(new DateTime(1996, 10, 28))
+            DateOfBirth = DateOnly.FromDateTime(new DateTime(1996, 10, 28, 0, 0, 0, DateTimeKind.Utc))
         };
 
-        var result = _guestService.Create(command);
+        var result = await _mediatorHandler.SendCommand(command);
         return Ok(result);
     }
 }

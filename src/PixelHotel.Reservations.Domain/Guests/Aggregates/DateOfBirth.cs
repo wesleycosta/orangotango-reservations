@@ -1,4 +1,5 @@
-﻿using PixelHotel.Core.Domain;
+﻿using PixelHotel.Core.Abstractions;
+using PixelHotel.Core.Domain;
 
 namespace PixelHotel.Reservations.Business.Guests.Aggregates;
 

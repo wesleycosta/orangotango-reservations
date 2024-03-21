@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using PixelHotel.Core.Data;
+using PixelHotel.Core.Abstractions;
 using PixelHotel.Core.Services;
 using PixelHotel.Events.Guests;
 using PixelHotel.Reservations.Business.Guests.Abstractions;
@@ -40,6 +40,6 @@ public class GuestCreateCommandHandler : CommandHandlerBase<GuestCreateCommand>
         guest.AddEvent(@event);
         _guestRepository.Add(guest);
 
-        return await SaveData(guest);
+        return await SaveChanges(guest);
     }
 }
