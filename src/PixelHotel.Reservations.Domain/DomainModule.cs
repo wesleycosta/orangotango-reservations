@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PixelHotel.Core.Abstractions;
 
-namespace PixelHotel.Reservations.Infra.Data;
+namespace PixelHotel.Reservations.Domain;
 
-public class DataModule : IModuleRegister
+public class DomainModule : IModuleRegister
 {
     public IServiceCollection RegisterServices(IServiceCollection services)
     {
+
         return services;
     }
 }

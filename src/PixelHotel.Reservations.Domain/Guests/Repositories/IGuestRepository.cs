@@ -1,8 +1,5 @@
-﻿using PixelHotel.Core.Abstractions;
-using PixelHotel.Reservations.Business.Guests.Aggregates;
+﻿namespace PixelHotel.Reservations.Business.Guests.Abstractions;
 
-namespace PixelHotel.Reservations.Business.Guests.Abstractions;
-
-public interface IGuestRepository : IRepositoryBase<Guest>
-{
-}
+//public interface IGuestRepository : IRepositoryBase<Guest>
+//{
+//}

@@ -1,21 +1,11 @@
-using PixelHotel.Reservations.CrossCutting.IoC;
+using PixelHotel.Api;
+using PixelHotel.Reservations.Api;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();
-builder.Services.AddServices();
-
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseAuthorization();
-
-app.MapControllers();
+var app = new WebAppBuilder()
+    .BuildDefault(args)
+    .WithDefaultServices()
+    .WithServicesFromAssemblies(AssemblyRegistry.GetAssemblies())
+    .WithDefaultAppConfig()
+    .Create();
 
 app.Run();

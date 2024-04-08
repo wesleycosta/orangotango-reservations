@@ -1,8 +1,7 @@
-﻿using PixelHotel.Core.Domain;
+﻿namespace PixelHotel.Reservations.Business.Guests.Commands;
 
-namespace PixelHotel.Reservations.Business.Guests.Commands;
-
-public class GuestCreateCommand : Command
+public class GuestCreateCommand 
+    //: Command // TODO
 {
     public required string FirstName { get; init; }
     public required string LastName { get; init; }

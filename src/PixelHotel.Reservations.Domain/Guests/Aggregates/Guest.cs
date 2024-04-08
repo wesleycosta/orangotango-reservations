@@ -1,9 +1,7 @@
-﻿using PixelHotel.Core.Abstractions;
-using PixelHotel.Core.Domain;
+﻿namespace PixelHotel.Reservations.Business.Guests.Aggregates;
 
-namespace PixelHotel.Reservations.Business.Guests.Aggregates;
-
-public class Guest : Entity, IAggregateRoot
+public class Guest 
+    //: Entity, IAggregateRoot // TODO
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
@@ -15,7 +13,6 @@ public class Guest : Entity, IAggregateRoot
         string emailAddress,
         DateOnly dateOfBirth)
     {
-        GenerateId();
         FirstName = name;
         LastName = lastName;
         Email = new Email(emailAddress);

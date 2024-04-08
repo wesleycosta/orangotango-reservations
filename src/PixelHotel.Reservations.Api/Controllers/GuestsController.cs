@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
+using PixelHotel.Api;
 using PixelHotel.Core.Events.Abstractions;
 using PixelHotel.Reservations.Business.Guests.Commands;
 
 namespace PixelHotel.Reservations.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class RoomsController(IMediatorHandler _mediatorHandler) : ControllerBase
+[Route("api/guests")]
+public class GuestsController(IMediatorHandler _mediatorHandler) : MainController
 {
     [HttpGet]
     public async Task<IActionResult> GetOk()
@@ -19,7 +20,8 @@ public class RoomsController(IMediatorHandler _mediatorHandler) : ControllerBase
             DateOfBirth = DateOnly.FromDateTime(new DateTime(1996, 10, 28, 0, 0, 0, DateTimeKind.Utc))
         };
 
-        var result = await _mediatorHandler.SendCommand(command);
-        return Ok(result);
+        //var result = await _mediatorHandler.SendCommand(command);
+        // TODO
+        return Ok();
     }
 }
