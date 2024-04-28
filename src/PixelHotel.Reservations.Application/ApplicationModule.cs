@@ -4,6 +4,7 @@ using PixelHotel.Core.Abstractions;
 using PixelHotel.Core.Events;
 using PixelHotel.Core.Events.Abstractions;
 using PixelHotel.Events.Rooms;
+using PixelHotel.Events.Rooms.Category;
 using PixelHotel.Reservations.Application.Consumers;
 
 namespace PixelHotel.Reservations.Application;
@@ -14,6 +15,7 @@ public class ApplicationModule : IModuleRegister
     {
         services.AddScoped<IConsumer<RoomCreatedOrUpdatedEvent>, RoomCreatedUpdatedConsumer>();
         services.AddScoped<IConsumer<RoomRemovedEvent>, RoomRemovedEventConsumer>();
+        services.AddScoped<IConsumer<CategoryCreatedUpdatedEvent>, CategoryCreatedUpdatedEventConsumer>();
 
         return services;
     }
@@ -32,7 +34,8 @@ public class ApplicationModule : IModuleRegister
                         Consumers = [
                             typeof(RoomCreatedUpdatedConsumer),
                             typeof(RoomRemovedEventConsumer),
-                       ]
+                            typeof(CategoryCreatedUpdatedEventConsumer)
+                        ]
                     }
                 ]
             };
