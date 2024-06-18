@@ -7,10 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.3" />
+    <PackageReference Include="PixelHotel.Infra" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\pixel-hotel-core\src\PixelHotel.Infra\PixelHotel.Infra.csproj" />
     <ProjectReference Include="..\PixelHotel.Reservations.Domain\PixelHotel.Reservations.Domain.csproj" />
   </ItemGroup>
 
