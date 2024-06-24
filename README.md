@@ -1,6 +1,6 @@
-# blue-whale-reservations
+# orangotango-reservations
 
-The reservation API manages the process of booking rooms at the hotel. It allows customers to check availability, make reservations, and modify or cancel their existing bookings.
+A microservice responsible for managing the reservation process at the hotel.
 
-[![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/blue-whale-reservations/badge)](https://www.codefactor.io/repository/github/wesleycosta/blue-whale-reservations)
-[![.NET](https://github.com/wesleycosta/blue-whale-reservations/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/blue-whale-reservations/actions/workflows/dotnet.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/orangotango-reservations/badge)](https://www.codefactor.io/repository/github/wesleycosta/orangotango-reservations)
+[![.NET](https://github.com/wesleycosta/orangotango-reservations/actions/workflows/dotnet.yml/badge.svg)](https://github.com/wesleycosta/orangotango-reservations/actions/workflows/dotnet.yml)
