@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Orangotango.Core" Version="1.4.3" />
-    <PackageReference Include="Orangotango.Events" Version="1.4.3" />
+    <PackageReference Include="Orangotango.Core" Version="1.4.5" />
+    <PackageReference Include="Orangotango.Events" Version="1.4.5" />
   </ItemGroup>
 
 </Project>

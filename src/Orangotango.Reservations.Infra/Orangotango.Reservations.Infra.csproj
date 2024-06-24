@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\Wesley\.nuget\packages\orangotango.infra\1.4.3\contentFiles\any\net8.0\favicon.ico" />
+    <Content Remove="C:\Users\Wesley\.nuget\packages\orangotango.infra\1.4.5\contentFiles\any\net8.0\favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.3" />
-    <PackageReference Include="Orangotango.Infra" Version="1.4.3" />
+    <PackageReference Include="Orangotango.Infra" Version="1.4.5" />
   </ItemGroup>
 
   <ItemGroup>
