@@ -1,20 +1,19 @@
-﻿namespace Orangotango.Reservations.Domain.Guests.Aggregates;
+﻿using Orangotango.Reservations.Domain.Reservations.ValueObjects;
+
+namespace Orangotango.Reservations.Domain.Reservations.Aggregates;
 
 public class Guest
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
     public Email Email { get; private set; }
-    public DateOfBirth DateOfBirth { get; private set; }
 
     public Guest(string name,
         string lastName,
-        string emailAddress,
-        DateOnly dateOfBirth)
+        string emailAddress)
     {
         FirstName = name;
         LastName = lastName;
         Email = new Email(emailAddress);
-        DateOfBirth = new DateOfBirth(dateOfBirth);
     }
 }

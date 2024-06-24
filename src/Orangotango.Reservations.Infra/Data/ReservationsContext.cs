@@ -1,10 +1,20 @@
-﻿//using PixelHotel.Core.Events.Abstractions;
-//using PixelHotel.Infra.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Orangotango.Core.Abstractions;
+using Orangotango.Infra.Configurations;
+using Orangotango.Reservations.Domain.Rooms.Aggregates;
 
-//namespace PixelHotel.Reservations.Infra.Data;
+namespace Orangotango.Reservations.Infra.Data;
 
-//public class ReservationsContext(IPublisherEvent publisherEvent) : ContextBase(publisherEvent)
-//{
-//}
+public class ReservationsContext(DbContextOptions<ReservationsContext> options) : DbContext(options), IUnitOfWork
+{
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ConfigureDefault();
 
-// TODO
+        modelBuilder.Entity<Category>().HasQueryFilter(filter => !filter.Removed);
+        modelBuilder.Entity<Room>().HasQueryFilter(filter => !filter.Removed);
+    }
+
+    public async Task<bool> Commit()
+        => await SaveChangesAsync() > 0;
+}

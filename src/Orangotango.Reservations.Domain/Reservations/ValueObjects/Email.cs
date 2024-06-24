@@ -2,7 +2,7 @@
 using Orangotango.Core.Domain;
 using System.Text.RegularExpressions;
 
-namespace Orangotango.Reservations.Domain.Guests.Aggregates;
+namespace Orangotango.Reservations.Domain.Reservations.ValueObjects;
 
 public sealed class Email : IValueObject
 {
