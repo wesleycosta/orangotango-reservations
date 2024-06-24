@@ -20,6 +20,18 @@ internal class CategoryEventProcessor(IUnitOfWork _unitOfWork,
         _logger.Information(nameof(OperationLogs.EventProcessedSuccessfully), $"Evento processado com sucesso", @event.TranceId);
     }
 
+    public async Task Remove(Guid id)
+    {
+        var category = await _categoryRepository.GetById(id);
+        if (category is null)
+        {
+            return;
+        }
+
+        _categoryRepository.SoftDelete(category);
+        await _unitOfWork.Commit();
+    }
+
     private void Upsert(Category category, CategoryUpsertedEvent @event)
     {
         if (category == null)
@@ -30,6 +42,7 @@ internal class CategoryEventProcessor(IUnitOfWork _unitOfWork,
 
         UpdateCategory(category, @event);
     }
+
     private void InsertCategory(CategoryUpsertedEvent @event)
     {
         var category = new Category(@event.AggregateId,

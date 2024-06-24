@@ -6,17 +6,17 @@ using Orangotango.Reservations.Application.Abstractions;
 
 namespace Orangotango.Reservations.Application.Consumers;
 
-public class CategoryUpsertEventConsumer(ILoggerService logger,
-    ICategoryEventProcessor _categoryEventProcessor) : ConsumerBase<CategoryUpsertedEvent>(nameof(CategoryUpsertedEvent), logger)
+public class CategoryRemovedEventConsumer(ILoggerService logger,
+    ICategoryEventProcessor CategoryEventProcessor) : ConsumerBase<CategoryRemovedEvent>(nameof(CategoryRemovedEvent), logger)
 {
-    public override async Task Consume(ConsumeContext<CategoryUpsertedEvent> context)
+    public override async Task Consume(ConsumeContext<CategoryRemovedEvent> context)
     {
         var @event = context.Message;
 
         try
         {
             LogInfoEventReceived(@event);
-            await _categoryEventProcessor.Upsert(context.Message);
+            await CategoryEventProcessor.Remove(@event.AggregateId);
         }
         catch (Exception ex)
         {
