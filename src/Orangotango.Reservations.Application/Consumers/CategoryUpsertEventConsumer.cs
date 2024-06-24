@@ -7,7 +7,7 @@ using Orangotango.Reservations.Application.Abstractions;
 namespace Orangotango.Reservations.Application.Consumers;
 
 public class CategoryUpsertEventConsumer(ILoggerService logger,
-    ICategoryEventProcessor _categoryEventProcessor) : ConsumerBase<CategoryUpsertedEvent>(nameof(CategoryUpsertedEvent), logger)
+    ICategoryEventProcessor _categoryEventProcessor) : ConsumerBase<CategoryUpsertedEvent>(logger)
 {
     public override async Task Consume(ConsumeContext<CategoryUpsertedEvent> context)
     {
