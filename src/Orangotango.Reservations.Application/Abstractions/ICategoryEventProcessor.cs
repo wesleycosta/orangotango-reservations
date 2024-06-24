@@ -5,6 +5,5 @@ namespace Orangotango.Reservations.Application.Abstractions;
 public interface ICategoryEventProcessor
 {
     Task Upsert(CategoryUpsertedEvent @event);
-
-    Task Remove(Guid id);
+    Task Remove(CategoryRemovedEvent @event);
 }

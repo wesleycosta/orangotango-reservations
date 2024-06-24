@@ -1,5 +1,4 @@
-﻿using MassTransit.SagaStateMachine;
-using Orangotango.Core.Domain;
+﻿using Orangotango.Core.Domain;
 
 namespace Orangotango.Reservations.Domain.Rooms.Aggregates;
 
@@ -14,6 +13,9 @@ public sealed class Category : EntityBase
         Name = name;
     }
 
-    public void SetName(string name)
-        => Name = name;
+    public Category SetName(string name)
+    {
+        Name = name;
+        return this;
+    }
 }

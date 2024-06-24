@@ -16,7 +16,7 @@ public class CategoryRemovedEventConsumer(ILoggerService logger,
         try
         {
             LogInfoEventReceived(@event);
-            await CategoryEventProcessor.Remove(@event.AggregateId);
+            await CategoryEventProcessor.Remove(@event);
         }
         catch (Exception ex)
         {
