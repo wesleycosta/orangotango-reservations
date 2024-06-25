@@ -11,6 +11,7 @@ public partial class ApplicationModule : IModuleRegister
     {
         RegistrationConsumers.RegisterConsumers(services);
         services.AddScoped<ICategoryEventProcessor, CategoryEventProcessor>();
+        services.AddScoped<IRoomEventProcessor, RoomEventProcessor>();
 
         return services;
     }

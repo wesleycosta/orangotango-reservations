@@ -7,7 +7,7 @@ using Orangotango.Rooms.Domain.Categories;
 
 namespace Orangotango.Reservations.Application.Services;
 
-internal class CategoryEventProcessor(ILoggerService logger,
+internal sealed class CategoryEventProcessor(ILoggerService logger,
     IUnitOfWork _unitOfWork,
     ICategoryRepository _categoryRepository) : EventProcessorBase(logger), ICategoryEventProcessor
 {

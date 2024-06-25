@@ -22,6 +22,8 @@ public class RegistrationConsumers : IBusConfiguration
                         Consumers = [
                             typeof(CategoryUpsertEventConsumer),
                             typeof(CategoryRemovedEventConsumer),
+                            typeof(RoomUpsertEventConsumer),
+                            typeof(RoomRemovedEventConsumer),
                         ]
                     }
             ]
@@ -31,5 +33,8 @@ public class RegistrationConsumers : IBusConfiguration
     {
         services.AddScoped<IConsumer<CategoryUpsertedEvent>, CategoryUpsertEventConsumer>();
         services.AddScoped<IConsumer<CategoryRemovedEvent>, CategoryRemovedEventConsumer>();
+
+        services.AddScoped<IConsumer<RoomUpsertedEvent>, RoomUpsertEventConsumer>();
+        services.AddScoped<IConsumer<RoomRemovedEvent>, RoomRemovedEventConsumer>();
     }
 }

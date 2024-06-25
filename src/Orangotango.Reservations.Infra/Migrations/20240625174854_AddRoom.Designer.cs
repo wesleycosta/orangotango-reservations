@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Orangotango.Reservations.Infra.Data;
 
@@ -11,9 +12,11 @@ using Orangotango.Reservations.Infra.Data;
 namespace Orangotango.Reservations.Infra.Migrations
 {
     [DbContext(typeof(ReservationsContext))]
-    partial class ReservationsContextModelSnapshot : ModelSnapshot
+    [Migration("20240625174854_AddRoom")]
+    partial class AddRoom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

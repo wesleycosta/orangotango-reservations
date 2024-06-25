@@ -6,17 +6,17 @@ using Orangotango.Reservations.Application.Abstractions;
 
 namespace Orangotango.Reservations.Application.Consumers;
 
-public class CategoryRemovedEventConsumer(ILoggerService logger,
-    ICategoryEventProcessor _categoryEventProcessor) : ConsumerBase<CategoryRemovedEvent>(logger)
+public class RoomRemovedEventConsumer(ILoggerService logger,
+    IRoomEventProcessor _roomEventProcessor) : ConsumerBase<RoomRemovedEvent>(logger)
 {
-    public override async Task Consume(ConsumeContext<CategoryRemovedEvent> context)
+    public override async Task Consume(ConsumeContext<RoomRemovedEvent> context)
     {
         var @event = context.Message;
 
         try
         {
             LogInfoEventReceived(@event);
-            await _categoryEventProcessor.Remove(@event);
+            await _roomEventProcessor.Remove(@event);
         }
         catch (Exception ex)
         {

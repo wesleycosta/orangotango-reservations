@@ -5,6 +5,7 @@ namespace Orangotango.Reservations.Domain.Rooms.Aggregates;
 public sealed class Category : EntityBase
 {
     public string Name { get; private set; }
+    public IEnumerable<Room> Rooms { get; private set; }
 
     public Category(Guid id,
         string name)

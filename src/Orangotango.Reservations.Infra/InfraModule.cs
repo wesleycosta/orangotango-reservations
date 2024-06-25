@@ -19,6 +19,7 @@ public class InfraModule : IModuleRegiterWithConfiguration
         services.AddSingleton<IPublisherEvent, PublisherEvent>();
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IRoomRepository, RoomRepository>();
 
         return services;
     }
