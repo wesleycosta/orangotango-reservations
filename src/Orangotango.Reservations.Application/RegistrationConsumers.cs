@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Orangotango.Core.Bus;
 using Orangotango.Core.Bus.Abstractions;
@@ -9,7 +10,7 @@ namespace Orangotango.Reservations.Application;
 
 public class RegistrationConsumers : IBusConfiguration
 {
-    public BusConfiguration GetConfiguration()
+    public BusConfiguration GetConfiguration(IConfiguration configuration)
         => new()
         {
             Receives =
