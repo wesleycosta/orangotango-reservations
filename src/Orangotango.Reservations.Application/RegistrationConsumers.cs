@@ -16,8 +16,8 @@ public class RegistrationConsumers : IBusConfiguration
             [
                 new ReceiveConfiguration
                     {
-                        ExchangeName = "pixel-hotel-rooms-exchange",
-                        QueueName = "pixel-hotel-rooms-events-to-reservations",
+                        ExchangeName = "orangotango-rooms-exchange",
+                        QueueName = "orangotango-rooms-events-to-reservations",
                         Consumers = [
                             typeof(CategoryUpsertEventConsumer),
                             typeof(CategoryRemovedEventConsumer),

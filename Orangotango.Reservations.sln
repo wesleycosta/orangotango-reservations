@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orangotango.Reservations.Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orangotango.Reservations.Infra", "src\Orangotango.Reservations.Infra\Orangotango.Reservations.Infra.csproj", "{F337E0AE-14A3-4623-B2F2-5057EBA1DA62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{74A9A9A8-1753-4E2B-A870-BCFEF6C3A4BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
