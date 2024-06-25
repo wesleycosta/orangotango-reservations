@@ -1,4 +1,5 @@
 # orangotango-reservations
+![Logo](https://github.com/wesleycosta/orangotango/raw/main/images/logos/logo_full.png)
 
 A microservice responsible for managing the reservation process at the hotel.
 
