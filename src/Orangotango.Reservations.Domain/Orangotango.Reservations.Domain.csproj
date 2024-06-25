@@ -10,4 +10,8 @@
     <PackageReference Include="Orangotango.Events" Version="1.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Reservations\Validations\" />
+  </ItemGroup>
+
 </Project>

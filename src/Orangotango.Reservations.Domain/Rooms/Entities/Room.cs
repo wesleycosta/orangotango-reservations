@@ -1,5 +1,6 @@
 ﻿using Orangotango.Core.Abstractions;
 using Orangotango.Core.Domain;
+using Orangotango.Reservations.Domain.Reservations.Entities;
 
 namespace Orangotango.Reservations.Domain.Rooms.Aggregates;
 
@@ -9,6 +10,7 @@ public sealed class Room : EntityBase, IAggregateRoot
     public int Number { get; private set; }
     public Guid CategoryId { get; private set; }
     public Category Category { get; private set; }
+    public IEnumerable<Reservation> Reservations { get; set; }
 
     public Room(Guid id,
         string name,
