@@ -27,17 +27,16 @@ internal sealed class ReservationMapping : MappingBase, IEntityTypeConfiguration
         //               .HasColumnName("GuestEmail");
         //    });
 
-        builder.OwnsOne(p => p.Period,
-            p =>
-            {
-                p.Property(c => c.CheckIn)
-                    .IsRequired()
-                    .HasColumnName("CheckIn");
+        builder.OwnsOne(p => p.Period, p =>
+        {
+            p.Property(c => c.CheckIn)
+                .IsRequired()
+                .HasColumnName("CheckIn");
 
-                p.Property(c => c.CheckOut)
-                    .IsRequired()
-                    .HasColumnName("CheckOut");
-            });
+            p.Property(c => c.CheckOut)
+                .IsRequired()
+                .HasColumnName("CheckOut");
+        });
 
         builder.HasOne(p => p.Room)
             .WithMany(p => p.Reservations)

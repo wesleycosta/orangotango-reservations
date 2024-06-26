@@ -8,9 +8,6 @@ public sealed class StayPeriod
     public DateTimeOffset CheckIn { get; private set; }
     public DateTimeOffset CheckOut { get; private set; }
 
-#pragma warning disable CS0628 // EF
-    protected StayPeriod() { }
-
     public StayPeriod(DateTimeOffset checkIn, DateTimeOffset checkOut)
     {
         if (!IsValidDate(checkIn))
