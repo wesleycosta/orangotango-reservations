@@ -1,15 +1,22 @@
 ﻿using Orangotango.Core.Domain;
 
-namespace Orangotango.Rooms.Domain.Categories.Commands;
+namespace Orangotango.Reservations.Domain.Reservations.Commands;
 
-public abstract class ReservationCommandBase : CommandBase
+public abstract class ReservationCommandBase(string guestName,
+    string guestEmail,
+    Guid roomId,
+    DateTimeOffset checkIn,
+    DateTimeOffset checkOut,
+    decimal value,
+    int adults,
+    int children) : CommandBase
 {
-    public string GuestName { get; set; }
-    public string GuestEmail { get; set; }
-    public Guid RoomId { get; set; }
-    public DateTimeOffset CheckIn { get; set; }
-    public DateTimeOffset CheckOut { get; set; }
-    public decimal Value { get; set; }
-    public int Adults { get; set; }
-    public int Children { get; set; }
+    public string GuestName { get; private set; } = guestName;
+    public string GuestEmail { get; private set; } = guestEmail;
+    public Guid RoomId { get; private set; } = roomId;
+    public DateTimeOffset CheckIn { get; private set; } = checkIn;
+    public DateTimeOffset CheckOut { get; private set; } = checkOut;
+    public decimal Value { get; private set; } = value;
+    public int Adults { get; private set; } = adults;
+    public int Children { get; private set; } = children;
 }

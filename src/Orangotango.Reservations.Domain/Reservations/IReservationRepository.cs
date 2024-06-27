@@ -1,8 +1,8 @@
 ﻿using Orangotango.Core.Abstractions;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
+using Orangotango.Reservations.Domain.Reservations.Entities;
 
 namespace Orangotango.Reservations.Domain.Reservations;
 
-public interface IReservationRepository : IRepositoryBase<Category>
+public interface IReservationRepository : IRepositoryBase<Reservation>
 {
 }

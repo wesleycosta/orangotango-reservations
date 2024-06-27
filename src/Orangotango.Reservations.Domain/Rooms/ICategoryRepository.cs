@@ -1,7 +1,7 @@
 ﻿using Orangotango.Core.Abstractions;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
-namespace Orangotango.Rooms.Domain.Categories;
+namespace Orangotango.Reservations.Domain.Rooms;
 
 public interface ICategoryRepository : IRepositoryBase<Category>
 {

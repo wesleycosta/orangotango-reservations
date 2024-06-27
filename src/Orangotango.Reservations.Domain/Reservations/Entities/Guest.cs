@@ -1,9 +1,16 @@
-﻿namespace Orangotango.Reservations.Domain.Reservations.Entities;
+﻿using MassTransit.SagaStateMachine;
+
+namespace Orangotango.Reservations.Domain.Reservations.Entities;
 
 public sealed class Guest
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
+    public string Name { get; private set; }
+    public string Email { get; private set; }
 
-    protected Guest() { }
+    public Guest(string name,
+        string email)
+    {
+        Name = name;
+        Email = email;
+    }
 }

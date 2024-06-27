@@ -1,6 +1,6 @@
 ﻿using Orangotango.Infra.Data;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
-using Orangotango.Rooms.Domain.Categories;
+using Orangotango.Reservations.Domain.Rooms;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Infra.Data.Repositories;
 

@@ -1,6 +1,6 @@
 ﻿using Orangotango.Core.Domain;
 
-namespace Orangotango.Reservations.Domain.Rooms.Aggregates;
+namespace Orangotango.Reservations.Domain.Rooms.Entities;
 
 public sealed class Category : EntityBase
 {

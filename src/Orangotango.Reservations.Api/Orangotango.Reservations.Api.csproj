@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Orangotango.Api" Version="1.7.0" />
+    <PackageReference Include="Orangotango.Api" Version="1.8.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -14,11 +14,6 @@
     <ProjectReference Include="..\Orangotango.Reservations.Application\Orangotango.Reservations.Application.csproj" />
     <ProjectReference Include="..\Orangotango.Reservations.Domain\Orangotango.Reservations.Domain.csproj" />
     <ProjectReference Include="..\Orangotango.Reservations.Infra\Orangotango.Reservations.Infra.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="InputModels\" />
   </ItemGroup>
 
 </Project>

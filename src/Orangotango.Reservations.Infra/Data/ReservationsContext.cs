@@ -2,7 +2,7 @@
 using Orangotango.Core.Abstractions;
 using Orangotango.Infra.Configurations;
 using Orangotango.Reservations.Domain.Reservations.Entities;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Infra.Data;
 

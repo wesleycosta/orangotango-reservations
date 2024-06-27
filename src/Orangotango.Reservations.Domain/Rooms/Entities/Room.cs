@@ -2,7 +2,7 @@
 using Orangotango.Core.Domain;
 using Orangotango.Reservations.Domain.Reservations.Entities;
 
-namespace Orangotango.Reservations.Domain.Rooms.Aggregates;
+namespace Orangotango.Reservations.Domain.Rooms.Entities;
 
 public sealed class Room : EntityBase, IAggregateRoot
 {

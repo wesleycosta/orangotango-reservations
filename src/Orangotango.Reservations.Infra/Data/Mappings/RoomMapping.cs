@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Orangotango.Infra.Data;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Infra.Data.Mappings;
 

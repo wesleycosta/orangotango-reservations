@@ -1,14 +1,15 @@
 ﻿using Orangotango.Core.Abstractions;
 using Orangotango.Core.Domain;
-using Orangotango.Reservations.Domain.Reservations.ValueObjects;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Domain.Reservations.Entities;
 
 public sealed class Reservation : EntityBase, IAggregateRoot
 {
-    //public Guest Guest { get; private set; }
-    public StayPeriod Period { get; private set; }
+    public string GuestName { get; private set; }
+    public string GuestEmail { get; private set; }
+    public DateTimeOffset CheckIn { get; private set; }
+    public DateTimeOffset CheckOut { get; private set; }
     public decimal Value { get; private set; }
     public int Adults { get; private set; }
     public int Children { get; private set; }
@@ -16,39 +17,78 @@ public sealed class Reservation : EntityBase, IAggregateRoot
     public Guid RoomId { get; private set; }
     public Room Room { get; private set; }
 
-    public bool HasDateChanged(StayPeriod period)
-        => !Period.Equals(period);
-
-    public bool IsItPossibleToCancel() =>
-        Status == ReservationStatus.Booked;
-
-    public bool IsItPossibleToCheckIn() =>
-        Status == ReservationStatus.Booked;
-
-    public bool IsItPossibleToCheckOut() =>
-        Status == ReservationStatus.CheckIn;
-
-    public void CheckIn()
+    public Reservation(string guestName,
+        string guestEmail,
+        DateTimeOffset checkIn,
+        DateTimeOffset checkOut,
+        decimal value,
+        int adults,
+        int children,
+        Guid roomId)
     {
-        if (!IsItPossibleToCheckIn())
-            throw new DomainException("It is only possible to check in for bookings that have the same status as Booked");
-
-        Status = ReservationStatus.CheckIn;
+        GenerateId();
+        GuestName = guestName;
+        GuestEmail = guestEmail;
+        CheckIn = checkIn;
+        CheckOut = checkOut;
+        Value = value;
+        Adults = adults;
+        Children = children;
+        Status = ReservationStatus.Booked;
+        RoomId = roomId;
     }
 
-    public void CheckOut()
+    public Reservation SetGuestName(string guestName)
     {
-        if (!IsItPossibleToCheckOut())
-            throw new DomainException("It is only possible to check out for bookings that have the same status as CheckIn");
-
-        Status = ReservationStatus.CheckOut;
+        GuestName = guestName;
+        return this;
     }
 
-    public void Cancel()
+    public Reservation SetGuestEmail(string guestEmail)
     {
-        if (!IsItPossibleToCancel())
-            throw new DomainException("It is only possible to cancel for bookings that have the same status as Booked");
+        GuestEmail = guestEmail;
+        return this;
+    }
 
-        Status = ReservationStatus.Cancelled;
+    public Reservation SetCheckIn(DateTimeOffset checkIn)
+    {
+        CheckIn = checkIn;
+        return this;
+    }
+
+    public Reservation SetCheckOut(DateTimeOffset checkOut)
+    {
+        CheckOut = checkOut;
+        return this;
+    }
+
+    public Reservation SetValue(decimal value)
+    {
+        Value = value;
+        return this;
+    }
+
+    public Reservation SetAdults(int adults)
+    {
+        Adults = adults;
+        return this;
+    }
+
+    public Reservation SetChildren(int children)
+    {
+        Children = children;
+        return this;
+    }
+
+    public Reservation SetStatus(ReservationStatus status)
+    {
+        Status = status;
+        return this;
+    }
+
+    public Reservation SetRoomId(Guid roomId)
+    {
+        RoomId = roomId;
+        return this;
     }
 }

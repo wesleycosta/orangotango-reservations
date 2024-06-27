@@ -2,8 +2,8 @@
 using Orangotango.Core.Bus;
 using Orangotango.Events.Rooms.Category;
 using Orangotango.Reservations.Application.Abstractions;
-using Orangotango.Reservations.Domain.Rooms.Aggregates;
-using Orangotango.Rooms.Domain.Categories;
+using Orangotango.Reservations.Domain.Rooms;
+using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Application.Services;
 
