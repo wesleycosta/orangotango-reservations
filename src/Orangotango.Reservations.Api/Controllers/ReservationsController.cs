@@ -9,7 +9,8 @@ namespace Orangotango.Reservations.Api.Controllers;
 
 [Route("api/reservations")]
 public sealed class CategoriesController(IMediatorHandler _mediator,
-    IReservationQueryService _queryService) : MainController
+    IReservationQueryService _queryService,
+    IRoomQueryService _roomQueryService) : MainController
 {
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] ReservationUpsertInputModel inputModel)
@@ -66,6 +67,13 @@ public sealed class CategoriesController(IMediatorHandler _mediator,
     public async Task<IActionResult> Search([FromQuery] string searchValue)
     {
         var result = await _queryService.Search(searchValue);
+        return Ok(result);
+    }
+
+    [HttpGet("rooms")]
+    public async Task<IActionResult> GetRooms([FromQuery] Guid? reservationId)
+    {
+        var result = await _roomQueryService.GetAll(reservationId);
         return Ok(result);
     }
 }

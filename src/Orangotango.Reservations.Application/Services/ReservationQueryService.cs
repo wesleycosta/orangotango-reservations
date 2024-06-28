@@ -28,7 +28,7 @@ internal sealed class ReservationQueryService(IReservationMapper _mapper,
              p.Room.Name.Contains(searchValue);
 
         return await _repository.GetByExpression(filter,
-            p => _mapper.MapToReservationFullResult(p),
+            p => _mapper.MapToFullResult(p),
             order => order.Room.Number,
             ascending: true,
             p => p.Room);
@@ -36,5 +36,5 @@ internal sealed class ReservationQueryService(IReservationMapper _mapper,
 
     private async Task<ReservationResult> GetReservationResultById(Guid id)
         => await _repository.GetFirstByExpression(category => category.Id == id,
-            p => _mapper.MapToReservationResult(p));
+            p => _mapper.MapToResult(p));
 }

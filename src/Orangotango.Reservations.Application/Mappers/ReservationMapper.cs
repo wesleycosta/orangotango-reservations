@@ -3,11 +3,11 @@ using Orangotango.Reservations.Application.Abstractions;
 using Orangotango.Reservations.Application.Results;
 using Orangotango.Reservations.Domain.Reservations.Entities;
 
-namespace Orangotango.Reservations.Application.Services;
+namespace Orangotango.Reservations.Application.Mappers;
 
 internal sealed class ReservationMapper : IReservationMapper
 {
-    public ReservationResult MapToReservationResult(Reservation reservation)
+    public ReservationResult MapToResult(Reservation reservation)
         => new()
         {
             Id = reservation.Id,
@@ -22,7 +22,7 @@ internal sealed class ReservationMapper : IReservationMapper
             RoomId = reservation.RoomId,
         };
 
-    public ReservationFullResult MapToReservationFullResult(Reservation reservation)
+    public ReservationFullResult MapToFullResult(Reservation reservation)
       => new()
       {
           Id = reservation.Id,

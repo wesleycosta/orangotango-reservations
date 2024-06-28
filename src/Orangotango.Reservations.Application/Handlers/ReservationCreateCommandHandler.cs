@@ -35,7 +35,7 @@ internal sealed class ReservationCreateCommandHandler(IUnitOfWork _unitOfWork,
             //await _publisher.Publish(reservation.GenerateUpsertedEvent());
             // TODO: arrumar
 
-            return SuccessfulResult(_mapper.MapToReservationResult(reservation));
+            return SuccessfulResult(_mapper.MapToResult(reservation));
         }
 
         return BadResult();

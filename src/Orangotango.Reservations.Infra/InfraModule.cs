@@ -21,6 +21,7 @@ public class InfraModule : IModuleRegiterWithConfiguration
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IRoomRepository, RoomRepository>();
+
         services.AddScoped<IReservationRepository, ReservationRepository>();
 
         return services;

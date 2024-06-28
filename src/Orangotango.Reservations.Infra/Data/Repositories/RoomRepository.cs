@@ -4,6 +4,6 @@ using Orangotango.Reservations.Domain.Rooms.Entities;
 
 namespace Orangotango.Reservations.Infra.Data.Repositories;
 
-internal class RoomRepository(ReservationsContext context) : RepositoryBaseWithRemoved<Room>(context), IRoomRepository
+internal sealed class RoomRepository(ReservationsContext context) : RepositoryBaseWithRemoved<Room>(context), IRoomRepository
 {
 }

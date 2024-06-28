@@ -26,7 +26,7 @@ internal sealed class ReservationRemoveCommandHandler(IUnitOfWork unitOfWork,
             // TODO
             //await _publisher.Publish(reservation.GenerateRemovedEvent());
 
-            return SuccessfulResult(_mapper.MapToReservationResult(reservation));
+            return SuccessfulResult(_mapper.MapToResult(reservation));
         }
 
         return BadResult();
