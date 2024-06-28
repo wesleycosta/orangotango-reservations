@@ -62,13 +62,6 @@ public sealed class CategoriesController(IMediatorHandler _mediator,
         return Ok(result);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var result = await _queryService.GetAll();
-        return Ok(result);
-    }
-
     [HttpGet("search")]
     public async Task<IActionResult> Search([FromQuery] string searchValue)
     {

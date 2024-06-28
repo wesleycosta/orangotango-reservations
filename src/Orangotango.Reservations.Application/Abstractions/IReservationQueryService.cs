@@ -3,9 +3,8 @@ using Orangotango.Reservations.Application.Results;
 
 namespace Orangotango.Reservations.Application.Abstractions;
 
-public interface IReservationQueryService
+public interface IReservationQueryService 
 {
     Task<Result> GetById(Guid id);
-    Task<IEnumerable<ReservationResult>> GetAll();
-    Task<IEnumerable<ReservationResult>> Search(string searchValue);
+    Task<IEnumerable<ReservationFullResult>> Search(string searchValue);
 }

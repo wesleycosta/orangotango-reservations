@@ -19,7 +19,7 @@ internal sealed class ReservationQueryService(IReservationMapper _mapper,
         return SuccessfulResult(result);
     }
 
-    public async Task<IEnumerable<ReservationResult>> Search(string searchValue)
+    public async Task<IEnumerable<ReservationFullResult>> Search(string searchValue)
     {
         Expression<Func<Reservation, bool>> filter = p => true;
         if (!string.IsNullOrEmpty(searchValue))
@@ -28,14 +28,11 @@ internal sealed class ReservationQueryService(IReservationMapper _mapper,
              p.Room.Name.Contains(searchValue);
 
         return await _repository.GetByExpression(filter,
-            p => _mapper.MapToReservationResult(p),
+            p => _mapper.MapToReservationFullResult(p),
             order => order.Room.Number,
             ascending: true,
             p => p.Room);
     }
-
-    public async Task<IEnumerable<ReservationResult>> GetAll()
-        => await _repository.GetAll(p => _mapper.MapToReservationResult(p));
 
     private async Task<ReservationResult> GetReservationResultById(Guid id)
         => await _repository.GetFirstByExpression(category => category.Id == id,

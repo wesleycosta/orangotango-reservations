@@ -6,4 +6,5 @@ namespace Orangotango.Reservations.Application.Abstractions;
 public interface IReservationMapper
 {
     ReservationResult MapToReservationResult(Reservation reservation);
+    ReservationFullResult MapToReservationFullResult(Reservation reservation);
 }
