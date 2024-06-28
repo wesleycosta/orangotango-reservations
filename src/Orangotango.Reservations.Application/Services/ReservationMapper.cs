@@ -1,8 +1,7 @@
-﻿using Orangotango.Reservations.Application.Abstractions;
+﻿using Orangotango.Core.Extensions;
+using Orangotango.Reservations.Application.Abstractions;
 using Orangotango.Reservations.Application.Results;
 using Orangotango.Reservations.Domain.Reservations.Entities;
-using System.ComponentModel;
-using System.Reflection;
 
 namespace Orangotango.Reservations.Application.Services;
 
@@ -39,19 +38,4 @@ internal sealed class ReservationMapper : IReservationMapper
           RoomName = reservation.Room.Name,
           StatusName = reservation.Status.GetDescription()
       };
-}
-
-public static class EnumExtensions
-{
-    public static string GetDescription(this Enum value)
-    {
-        var field = value.GetType().GetField(value.ToString());
-        if (field is null)
-        {
-            return default;
-        }
-
-        var attribute = field.GetCustomAttribute<DescriptionAttribute>();
-        return attribute == null ? value.ToString() : attribute.Description;
-    }
 }
