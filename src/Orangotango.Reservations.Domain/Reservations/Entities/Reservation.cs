@@ -91,4 +91,37 @@ public sealed class Reservation : EntityBase, IAggregateRoot
         RoomId = roomId;
         return this;
     }
+
+    public bool IsItPossibleToCancel() =>
+       Status == ReservationStatus.Booked;
+
+    public bool IsItPossibleToCheckIn() =>
+        Status == ReservationStatus.Booked;
+
+    public bool IsItPossibleToCheckOut() =>
+        Status == ReservationStatus.CheckIn;
+
+    public void ExecuteCheckIn()
+    {
+        if (!IsItPossibleToCheckIn())
+            throw new DomainException("It is only possible to check in for bookings that have the same status as Booked");
+
+        Status = ReservationStatus.CheckIn;
+    }
+
+    public void ExecuteCheckOut()
+    {
+        if (!IsItPossibleToCheckOut())
+            throw new DomainException("It is only possible to check out for bookings that have the same status as CheckIn");
+
+        Status = ReservationStatus.CheckOut;
+    }
+
+    public void ExecuteCancel()
+    {
+        if (!IsItPossibleToCancel())
+            throw new DomainException("It is only possible to cancel for bookings that have the same status as Booked");
+
+        Status = ReservationStatus.Cancelled;
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace Orangotango.Reservations.Domain.Reservations.Commands;
 
-public sealed class ReservationRemoveCommand(Guid id) : CommandBase
+public sealed class ReservationRemoveCommand(Guid id) : ReservationCommandWithIdBase(id)
 {
-    public Guid Id { get; private set; } = id;
 }

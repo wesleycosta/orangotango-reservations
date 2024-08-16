@@ -29,6 +29,9 @@ public partial class ApplicationModule : IModuleRegister
         services.AddCommandHandler<ReservationCreateCommand, ReservationCreateCommandHandler>();
         services.AddCommandHandler<ReservationUpdateCommand, ReservationUpdateCommandHandler>();
         services.AddCommandHandler<ReservationRemoveCommand, ReservationRemoveCommandHandler>();
+        services.AddCommandHandler<ReservationCancelCommand, ReservationCancelCommandHandler>();
+        services.AddCommandHandler<CheckInCommand, CheckInCommandHandler>();
+        services.AddCommandHandler<CheckOutCommand, CheckOutCommandHandler>();
     }
 
     private static void RegisterRoomsServices(IServiceCollection services)

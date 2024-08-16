@@ -13,6 +13,9 @@ public class DomainModule : IModuleRegister
         services.AddValidator<ReservationCreateCommand, ReservationCreateCommandValidator>();
         services.AddValidator<ReservationUpdateCommand, ReservationUpdateCommandValidator>();
         services.AddValidator<ReservationRemoveCommand, ReservationRemoveCommandValidator>();
+        services.AddValidator<ReservationCancelCommand, ReservationCancelCommandValidator>();
+        services.AddValidator<CheckInCommand, CheckInCommandValidator>();
+        services.AddValidator<CheckOutCommand, CheckOutCommandValidator>();
 
         return services;
     }

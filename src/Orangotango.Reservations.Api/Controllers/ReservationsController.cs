@@ -76,4 +76,28 @@ public sealed class CategoriesController(IMediatorHandler _mediator,
         var result = await _roomQueryService.GetAll(reservationId);
         return Ok(result);
     }
+
+    [HttpPatch("{id}/check-in")]
+    public async Task<IActionResult> CheckIn(Guid id)
+    {
+        var command = new CheckInCommand(id);
+        var result = await _mediator.SendCommand(command);
+        return Ok(result);
+    }
+
+    [HttpPatch("{id}/check-out")]
+    public async Task<IActionResult> CheckOut(Guid id)
+    {
+        var command = new CheckOutCommand(id);
+        var result = await _mediator.SendCommand(command);
+        return Ok(result);
+    }
+
+    [HttpPatch("{id}/cancel")]
+    public async Task<IActionResult> Cancel(Guid id)
+    {
+        var command = new ReservationCancelCommand(id);
+        var result = await _mediator.SendCommand(command);
+        return Ok(result);
+    }
 }
